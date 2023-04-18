@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #4af6c8;
+    --winning-blocks: #000000;
+    --darkblue:#09147d;
+}
+
+body {
+    color: var(--winning-blocks);
+    font-family: 'Finger Paint', cursive;
+    background: url(bg.png);
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.container {
+    padding: 40px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gameboard {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.box {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    font-size: 120px;
+    border: 2px solid;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--darkblue);
+    color: #f9f7f7;
+    border-color: var(--blue);
+    font-size: 15px;
+    transition: 200ms transform;
+    font-weight: 600;
+}
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+@keyframes animate{
+    0%{
+      left: 10px;
+      background-color: #09eccc;
+    }
+    25%{
+      background-color: #09ec25;
+      left: 400px;
+    }
+    50%{
+        left: 1250px;
+        background-color: #ff2f00;
+    }
+    75%{
+      left: 400px;
+      background-color: #ec7209;
+    }
+    100%{
+      left: 0px;
+     background-color: #feeb05;
+    }
+}
+
+.winnerBox{
+    position:absolute;
+    top:calc(50vh - 70px);
+    font-size: 80px;
+    scale:.2;
+    opacity:0;
+    transition:2s ease-in-out;
+    color:red;
+    height:242px;
+    width:250px;
+}
+
+.won{
+    background: url("https://media.tenor.com/NzH_xwU81M0AAAAi/sampsoid-sampsoid-racing.gif");
+    background-size: cover;
+    opacity:1;
+    scale:1;
+}
