@@ -10,9 +10,12 @@ let currentPlayer = X_TEXT
 let spaces = Array(9).fill(null)
 
 const winnerBox = document.querySelector(".winnerBox")
+const winnerText = document.querySelector(".winnerText")
 const startGame = () => {
     boxes.forEach(box => box.addEventListener('click', boxClicked))
-    winnerBox.classList.remove("won")
+    winnerBox.classList.remove("appear")
+    winnerText.innerHTML = ``
+    winnerText.classList.remove("appear")
 }
 
 function boxClicked(e) {
@@ -21,10 +24,10 @@ function boxClicked(e) {
     if(!spaces[id]){
         spaces[id] = currentPlayer
         e.target.innerText = currentPlayer
-
         if(playerHasWon() !==false){
-            winnerBox.innerHTML = ` `
-            winnerBox.classList.add("won")
+            winnerText.innerHTML = `${currentPlayer} is winner!`
+            winnerText.classList.add("appear")
+            winnerBox.classList.add("appear")
             playerText.innerHTML = `${currentPlayer} has won!`
             let winning_blocks = playerHasWon()
 
@@ -33,6 +36,14 @@ function boxClicked(e) {
         }
 
         currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
+    }
+    if(gameOver()){
+        playerText.innerHTML = `DRAW DRAW`
+        winnerText.classList.remove("appear")
+        setTimeout(()=>{
+            winnerText.innerHTML = ``
+            restart()
+        },3000);
     }
 }
 
@@ -57,12 +68,19 @@ function playerHasWon() {
     }
     return false
 }
-
+function gameOver(){
+    for(let i of spaces){
+        if(!i)return false
+    }
+    return true
+}
 restartBtn.addEventListener('click', restart)
 
 function restart() {
+    winnerText.innerHTML = ``
+     winnerText.classList.remove("appear")
     spaces.fill(null)
-    winnerBox.classList.remove("won")
+    winnerBox.classList.remove("appear")
     boxes.forEach( box => {
         box.innerText = ''
         box.style.backgroundColor=''

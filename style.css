@@ -62,44 +62,30 @@ button:hover {
     cursor: pointer;
     transform: translateY(-2px);
 }
-@keyframes animate{
-    0%{
-      left: 10px;
-      background-color: #09eccc;
-    }
-    25%{
-      background-color: #09ec25;
-      left: 400px;
-    }
-    50%{
-        left: 1250px;
-        background-color: #ff2f00;
-    }
-    75%{
-      left: 400px;
-      background-color: #ec7209;
-    }
-    100%{
-      left: 0px;
-     background-color: #feeb05;
-    }
-}
 
 .winnerBox{
     position:absolute;
     top:calc(50vh - 70px);
-    font-size: 80px;
+    font-size: 50px;
     scale:.2;
     opacity:0;
-    transition:2s ease-in-out;
-    color:red;
+    color:orange;
     height:242px;
     width:250px;
-}
-
-.won{
     background: url("https://media.tenor.com/NzH_xwU81M0AAAAi/sampsoid-sampsoid-racing.gif");
     background-size: cover;
+}
+
+.winnerText{
+    scale:.2;
+    opacity:0;
+    height:40px;
+    font-size:40px;
+    color:black;
+}
+
+.appear{
+    transition:1s ease-in-out;
     opacity:1;
     scale:1;
 }
