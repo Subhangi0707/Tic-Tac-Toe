@@ -1,25 +1,28 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 :root {
-    --blue: #4af6c8;
-    --winning-blocks: #000000;
-    --darkblue:#09147d;
+    --primary-color: #4af6c8;
+    --secondary-color: #09147d;
+    --accent-color: #e85d2b;
+    --text-color: #000000;
 }
 
 body {
-    color: var(--winning-blocks);
-    font-family: 'Finger Paint', cursive;
-    background: url(bg.png);
+    background-image: url(bg.png);
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size: cover;
+    font-family: 'Monteserat', cursive;
 }
+
 h1 {
     font-size: 50px;
     text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
 .container {
@@ -37,30 +40,40 @@ h1 {
     flex-wrap: wrap;
     margin-top: 40px;
 }
+
 .box {
     height: 100px;
     width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blue);
-    font-size: 120px;
-    border: 2px solid;
+    font-size: 80px;
+    border: 2px solid var(--text-color);
+    color: var(--primary-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.box:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 button {
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: var(--darkblue);
+    background-color: var(--secondary-color);
     color: #f9f7f7;
-    border-color: var(--blue);
+    border-color: var(--primary-color);
     font-size: 15px;
-    transition: 200ms transform;
+    transition: all 0.2s ease-in-out;
     font-weight: 600;
+    margin-top: 20px;
 }
+
 button:hover {
     cursor: pointer;
-    transform: translateY(-2px);
+    transform: scale(1.1);
 }
 
 .winnerBox{
@@ -70,7 +83,6 @@ button:hover {
     font-size: 50px;
     scale:.2;
     opacity:0;
-    color:orange;
     height:242px;
     width:250px;
     background: url("https://media.tenor.com/NzH_xwU81M0AAAAi/sampsoid-sampsoid-racing.gif");
@@ -78,11 +90,11 @@ button:hover {
 }
 
 .winnerText{
-    scale:.2;
-    opacity:0;
-    height:40px;
-    font-size:40px;
-    color:black;
+    font-size: 40px;
+    color: var(--text-color);
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
 }
 
 .appear{
